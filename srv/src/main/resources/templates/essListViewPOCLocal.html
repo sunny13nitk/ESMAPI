@@ -6,14 +6,38 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
    <title>Employee Self Service App</title>
+
    <!-- Metro 4 -->
    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-all.min.css">
+   <link th:href="@{/css/main.css}" rel="stylesheet" />
 
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 
 <body>
+   <newlxp-header entrypoint="support"></newlxp-header>
+   <newlxp-announcements entrypoint="support"></newlxp-announcements>
+
+   <section class="customer-info-wrapper">
+      <img th:src="@{/images/person.png}" class="customer-info-image" />
+      <div class="customer-info-text">
+         <p>Dear valued learner,</p>
+         <p>please note the following Information while contacting us:</p>
+         <ul>
+            <li><span>You can expect to receive a response from us within one business day.</span></li>
+            <li><span>Our service is available from Monday to Friday and in English only (submitting your query in a
+                  language other than English may impact the response time).</span></li>
+            <li><span>Please provide us with as much information as possible when entering your ticket e.g. your user ID
+                  (if applicable), screenshots of the issue, course code (if there is an issue with specific content),
+                  any reference numbers included in the error message / emails you have received etc., browser version,
+                  exact path to error / steps to reproduce in order for us to be able to reproduce the issue.</span>
+            </li>
+         </ul>
+         <p>Thank you</p>
+         <p>Your SAP Learning Support Team</p>
+      </div>
+   </section>
 
    <div class="frame" style="padding: 20px; overflow: auto; background-color: #FFFFFF">
 
@@ -229,9 +253,12 @@
 
 
 
+
+
+   <script type="text/javascript" th:src="@{/js/web_components_loading.js}"></script>
+
    <!-- Metro 4 -->
    <script src="https://cdn.metroui.org.ua/v4.3.2/js/metro.min.js"></script>
-
 
 </body>
 
