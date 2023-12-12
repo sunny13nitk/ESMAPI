@@ -151,7 +151,7 @@ public class LSOController
             }
 
         }
-
+        log.info("View name for LSO List view: " + lsoCaseListView);
         return lsoCaseListView;
 
     }
