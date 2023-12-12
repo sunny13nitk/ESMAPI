@@ -84,7 +84,7 @@ public class LSOController
     private final String caseFormErrorRedirect = "redirect:/lso/errForm/";
     private final String caseFormView = "caseFormLSO";
     private final String caseFormReply = "caseFormReplyLSO";
-    private final String lsoCaseListView = "lsoCasesListView";
+    private final String lsoCaseListView = "lsoCasesListViewLX";
     private final String caseFormReplyErrorRedirect = "redirect:/lso/errCaseReply/";
 
     @GetMapping("/")

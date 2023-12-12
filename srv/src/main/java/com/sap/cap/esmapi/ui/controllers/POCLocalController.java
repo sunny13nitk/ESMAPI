@@ -83,8 +83,8 @@ public class POCLocalController
 
     private final String caseListVWRedirect = "redirect:/poclocal/";
     private final String caseFormErrorRedirect = "redirect:/poclocal/errForm/";
-    private final String caseFormView = "caseFormPOCLocal";
-    private final String caseFormReply = "caseFormReplyPOCLocal";
+    private final String caseFormView = "caseFormPOCLocalLX";
+    private final String caseFormReply = "caseFormReplyPOCLocalLX";
     private final String caseFormReplyErrorRedirect = "redirect:/poclocal/errCaseReply/";
 
     @GetMapping("/")
@@ -137,7 +137,7 @@ public class POCLocalController
 
         }
 
-        return "essListViewPOCLocal";
+        return "essListViewPOCLocalLX";
 
     }
 
@@ -880,7 +880,7 @@ public class POCLocalController
             }
         }
 
-        return "caseFormReplyPOCLocal";
+        return caseFormReply;
     }
 
 }

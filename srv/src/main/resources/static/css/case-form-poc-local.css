@@ -1,0 +1,27 @@
+body {
+    font-family: BentonSans-Regular,sans-serif;
+ }
+
+ .case-form-footer-btn {
+    display: flex;
+    justify-content: center;
+    margin: 52px 0 0 174px;
+    max-width: 860px;
+ }
+
+ .case-form-footer-btn .ds-button--primary,
+ .case-form-footer-btn .ds-button--secondary {
+    padding: 10px 44px;
+    font-size: 17px;
+ }
+
+ .case-form-footer-btn .ds-button--secondary {
+    margin-left: 11px;
+ }
+
+ @media only screen and (max-width: 768px) {
+    .case-form-footer-btn {
+       margin-left: 0;
+       margin-top: 40px;
+    }
+ }

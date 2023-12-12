@@ -1,9 +1,9 @@
 applications:
-- name: esmapi
+- name: esmapi-lx
   instances: 1
   memory: 896M
   routes:
-    - route: esmapi.cfapps.eu10-004.hana.ondemand.com
+    - route: esmapi-lx.cfapps.eu10-004.hana.ondemand.com
   path: srv/target/esmapi-exec.jar
   services:
     - esmapi-xsuaa
@@ -13,13 +13,13 @@ applications:
     SEND_XFRAMEOPTIONS: false
 
 # Application Router as web server
-- name: app-esmapi
+- name: app-esmapi-lx
   path: app
   buildpacks:
     - nodejs_buildpack
   memory: 128M
   routes:
-    - route: esmapi-web.cfapps.eu10-004.hana.ondemand.com
+    - route: esmapi-web-lx.cfapps.eu10-004.hana.ondemand.com
   services:
     - esmapi-xsuaa
   env:

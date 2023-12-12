@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+   <!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+   <title>Employee Self Service App</title>
+   <!-- Metro 4 -->
+   <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4.3.2/css/metro-all.min.css">
+
+   <link th:href="@{/css/main.css}" rel="stylesheet" />
+   <link th:href="@{/css/list-view-poc-local.css}" rel="stylesheet" />
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+
+<body>
+   <newlxp-header entrypoint="support"></newlxp-header>
+   <newlxp-announcements entrypoint="support"></newlxp-announcements>
+
+   <section class="customer-info-wrapper">
+      <img th:src="@{/images/person.png}" class="customer-info-image" />
+      <div class="customer-info-text">
+         <p>Dear valued learner,</p>
+         <p>please note the following Information while contacting us:</p>
+         <ul>
+            <li><span>You can expect to receive a response from us within one business day.</span></li>
+            <li><span>Our service is available from Monday to Friday and in English only (submitting your query in a
+                  language other than English may impact the response time).</span></li>
+            <li><span>Please provide us with as much information as possible when entering your ticket e.g. your user ID
+                  (if applicable), screenshots of the issue, course code (if there is an issue with specific content),
+                  any reference numbers included in the error message / emails you have received etc., browser version,
+                  exact path to error / steps to reproduce in order for us to be able to reproduce the issue.</span>
+            </li>
+         </ul>
+         <p>Thank you</p>
+         <p>Your SAP Learning Support Team</p>
+      </div>
+   </section>
+
+   <div class="all-cases-wrapper">
+      <div class="row user-information">
+         <!--Title Head - Begin -->
+         <div class="colspan-6">
+            <h2 class="user-information-title">
+               <span class="mif-contacts-mail"></span>
+               Employee Self Service(s)
+            </h2>
+         </div>
+
+         <!-- User Information Card -->
+         <div class="colspan-4" th:if="${userInfo.userDetails != null}">
+            <div class="icon-box border bd-default">
+               <div class="icon bg-cyan fg-white"><span class="mif-user-check"></span></div>
+               <div class="content p-4">
+                  <div class="text-upper">
+                     <label class="user-details" th:text="${userInfo.userDetails.userId}">
+                     </label>
+                  </div>
+                  <div class="text-upper text-bold text-lead">
+                     <label class="user-details" th:text="${userInfo.userDetails.userName}">
+                     </label>
+                  </div>
+               </div>
+            </div>
+         </div>
+
+         <div class="colspan-2" style="padding: 20px;" th:if="${sessMsgs != null}">
+            <a href="#" class="button alert outline cycle " data-role="hint" role="button"
+               onclick="$('#info-box').data('infobox').open()" data-hint-position="bottom" data-cls-hint="fg-black"
+               data-hint-text="Session Alerts!">
+               <span class="mif-bell" style="margin-left: 0px">
+               </span>
+            </a>
+
+            <a href="#" class="button primary outline cycle" style="margin-right: 20px;" data-role="hint"
+               th:href="@{/poclocal/}" role="button" data-hint-position="bottom" data-cls-hint="fg-black"
+               data-hint-text="Refresh">
+               <span class="mif-refresh" style="margin-left: 0px"></span>
+            </a>
+
+            <div class="row flex-justify-left">
+               <div class="info-box" id="info-box" data-role="infobox" data-width=800 data-height=800>
+                  <span class="button square closer"></span>
+                  <div class="info-box-content">
+
+                     <div class="remark success">
+                        <p>
+                           Alerts generated for <strong> current Session.</strong>
+                        </p>
+                     </div>
+
+                     <div class="cell-11">
+                        <table class="table table-border compact striped">
+                           <thead>
+                              <tr>
+                                 <th style="text-align: center;">Messages</th>
+                              </tr>
+                           </thead>
+                           <tbody>
+                              <tr th:each="msg : ${sessMsgs}">
+                                 <td style="text-align: left" th:text="${msg}"></td>
+                              </tr>
+                           </tbody>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+      <!--Table Row - Starts  -->
+      <div class="row mt-5" th:if="${userInfo.cases != null}">
+         <h1 class="all-cases-title">
+            All Cases
+         </h1>
+         <div class="colspan-12">
+            <table class="table compact table-border row-hover" id="t-inspector" data-role="table"
+               data-show-search="true" data-show-rows-steps="false" data-table-search-title="Filter Cases:"
+               data-search-min-length="1" data-search-threshold="300" data-rows="10"
+               data-search-fields="subject,statusDesc,id" data-horizontal-scroll="true"
+               data-info-wrapper=".info-wrapper" data-thousand-separator=","
+               data-pagination-wrapper=".pagination-wrapper" data-pagination-prev-title="Previuos">
+               <thead>
+                  <tr>
+                     <th data-name="id" class="sortable-column sort-desc pl-6">Case ID</th>
+
+                     <th data-name="statusDesc" data-cls-column="text-left">Status</th>
+
+                     <th data-name="subject" data-cls-column="text-left">Issue Description</th>
+
+                     <th data-name="formattedDate" data-format="number" data-cls-column="text-left">
+                        Created On
+                     </th>
+
+                     <th class="pr-6" data-cls-column="text-left">
+                        Details
+                     </th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr th:each="case : ${userInfo.cases}">
+
+                     <td th:text="${case.id}"></td>
+                     <td th:text="${case.statusDesc}"></td>
+                     <td th:text="${case.subject}"></td>
+                     <td th:text="${case.formattedDate}"></td>
+                     <td>
+                        <a href="#" class="" th:href="@{'/poclocal/caseDetails/' + ${case.guid}}" role="button"
+                           data-role="hint" data-hint-position="right" data-cls-hint="fg-black"
+                           data-hint-text="Reply to Case">
+                           Reply
+                        </a>
+                     </td>
+               </tbody>
+            </table>
+
+            <p class="h5 text-center info-wrapper"></p>
+            <div class="d-flex flex-justify-center pagination-wrapper"></div>
+         </div>
+      </div>
+      <!--Table Row - Ends -->
+
+      <div class="row flex-justify-center mt-10" th:if="${userInfo.cases == null}">
+         <div class="remark primary ">
+            <h6>No Cases could be identified for you! You can however create a new Case/Service Request using options as
+               below.</h6>
+         </div>
+      </div>
+
+      <!--Create Case Row - Starts  -->
+      <div class="row">
+         <a href="#" class="create-case-btn ds-button ds-button--primary" th:href="@{'/poclocal/createCase/'}"
+            role="button">
+            Create Case
+         </a>
+      </div>
+      <!--Create Case Row - Ends  -->
+   </div>
+
+   <div class="slot" id="slot1" th:if="${rateLimitBreached == true}"></div>
+   <newlxp-footer></newlxp-footer>
+
+   <script>
+      function runToast()
+      {
+         var toast = Metro.toast.create("Rate Limit Exceeded!! ", function ()
+         {
+            alert('Rate Limit Exceeded!! You can only submit a maximum of 2 incidents in a 2 min slot for an Active Session.')
+         });
+
+      }
+
+      $(document).ready(function ()
+      {
+         $('div.slot').each(function (i, d)
+         {
+            runToast.call($(this));
+         });
+      });
+
+   </script>
+
+   <!-- Metro 4 -->
+   <script src="https://cdn.metroui.org.ua/v4.3.2/js/metro.min.js"></script>
+
+   <!-- Load Web Components -->
+   <!-- <script type="text/javascript" th:src="@{/js/web_components_loading.js}"></script> -->
+</body>
+
+</html>
