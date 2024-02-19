@@ -7,7 +7,6 @@
 	<artifactId>esmapi-parent</artifactId>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
-<!-- Comment -->
 	<name>esmapi parent</name>
 
 	<properties>
