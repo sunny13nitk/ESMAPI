@@ -27,7 +27,7 @@ applications:
       [
         {
           "name":"token-destination",
-          "url":"https://esmapi.cfapps.eu10-004.hana.ondemand.com",
+          "url":"https://esmapi-dev.cfapps.eu10-004.hana.ondemand.com",
           "forwardAuthToken": true
         },
         {
