@@ -1,7 +1,6 @@
 {
   "welcomeFile": "index.html",
   "authenticationMethod": "route",
-  "cacheControl": "no-cache, no-store, must-revalidate",
   "routes": [
     {
       "source": "^/ess",
