@@ -6,7 +6,7 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @SpringBootApplication
 @EnableAspectJAutoProxy
-public class Application
+public class Application  //Main Class
 {
 
 	public static void main(String[] args)

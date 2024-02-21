@@ -6,8 +6,7 @@
 	<groupId>com.sap.cap</groupId>
 	<artifactId>esmapi-parent</artifactId>
 	<version>1.0.0</version>
-	<packaging>pom</packaging>
-<!-- Comment -->
+	<packaging>pom</packaging>  
 	<name>esmapi parent</name>
 
 	<properties>

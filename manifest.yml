@@ -5,7 +5,7 @@ applications:
   routes:
     - route: esmapi-dev.cfapps.eu10-004.hana.ondemand.com
   path: srv/target/srv-exec.jar  
-  services:
+  services:  
     - esmapi-xsuaa
     - esmapi-hana
   env:
