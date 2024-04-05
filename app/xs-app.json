@@ -29,7 +29,7 @@
     {
       "source": "^/common-navigation-api/(.*)$",
       "target": "/common-navigation-api/$1",
-      "destination": "common_navigation_samlauth",
+      "destination": "common_navigation_proxy",
       "authenticationType": "xsuaa"
     },
     {
