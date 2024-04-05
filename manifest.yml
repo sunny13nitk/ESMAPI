@@ -8,7 +8,7 @@ applications:
   services:  
     - esmapi-xsuaa
     - esmapi-hana
-    - srv-cloud-destService
+    - iESM-destination-services
   env:
     IAS_XSUAA_XCHANGE_ENABLED: true
     SEND_XFRAMEOPTIONS: false
@@ -23,7 +23,7 @@ applications:
     - route: esmapi-devapp.cfapps.eu10-004.hana.ondemand.com
   services:
     - esmapi-xsuaa
-    - srv-cloud-destService
+    - iESM-destination-services
   env:
     destinations: >
       [
