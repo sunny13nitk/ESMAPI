@@ -29,6 +29,16 @@ applications:
           "name":"token-destination",
           "url":"https://esmapi-dev.cfapps.eu10-004.hana.ondemand.com",
           "forwardAuthToken": true
+        },
+         {
+          "name":"common_navigation_samlauth"
+        },
+        {
+          "name":"common_navigation_proxy_public"
+       
+        },
+        {
+          "name":"common_navigation_resources"         
         }
       ]
 ...
