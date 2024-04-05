@@ -25,12 +25,12 @@
       "target": "/api",
       "destination": "token-destination",
       "authenticationType": "xsuaa"
-    },
+    },  
     {
-      "source": "^/common-navigation-api/(.*)$",
+      "source": "^/common-navigation-samlauth/(.*)$",
       "target": "/common-navigation-api/$1",
-      "destination": "common_navigation_proxy",
-      "authenticationType": "xsuaa"
+      "destination": "common_navigation_samlauth",
+      "authenticationType": "xsuaa" 
     },
     {
       "source": "^/common-navigation-api-public/(.*)$",
