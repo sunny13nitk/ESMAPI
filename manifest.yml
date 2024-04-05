@@ -8,6 +8,7 @@ applications:
   services:  
     - esmapi-xsuaa
     - esmapi-hana
+    - srv-cloud-destService
   env:
     IAS_XSUAA_XCHANGE_ENABLED: true
     SEND_XFRAMEOPTIONS: false
@@ -22,6 +23,7 @@ applications:
     - route: esmapi-devapp.cfapps.eu10-004.hana.ondemand.com
   services:
     - esmapi-xsuaa
+    - srv-cloud-destService
   env:
     destinations: >
       [
@@ -29,16 +31,6 @@ applications:
           "name":"token-destination",
           "url":"https://esmapi-dev.cfapps.eu10-004.hana.ondemand.com",
           "forwardAuthToken": true
-        },
-        {
-          "name":"common_navigation_samlauth"
-        },
-        {
-          "name":"common_navigation_proxy_public"
-       
-        },
-        {
-          "name":"common_navigation_resources"         
         }
       ]
 ...
