@@ -27,7 +27,7 @@
       "authenticationType": "xsuaa"
     },  
     {
-      "source": "^/common-navigation-samlauth/(.*)$",
+      "source": "^/common-navigation-api/(.*)$",
       "target": "/common-navigation-api/$1",
       "destination": "common_navigation_samlauth",
       "authenticationType": "xsuaa" 
