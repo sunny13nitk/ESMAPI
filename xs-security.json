@@ -6,6 +6,7 @@
       "binding-secret"
     ],
     "redirect-uris": [
+      "https://*.cfapps.eu10-004.hana.ondemand.com/login/callback",
       "https://*.cfapps.eu10-004.hana.ondemand.com/**"
     ]
   },
@@ -54,5 +55,6 @@
         "$XSAPPNAME.SVC_ESM_CONTRACTOR_LSO"
       ]
     }
-  ]
+  ],
+  "authorities-inheritance": false
 }

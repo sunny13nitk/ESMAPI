@@ -1,17 +1,18 @@
 applications:
 - name: esmapi
   instances: 1
-  memory: 1024M
+  memory: 800M
+  disk_quota: 800M
   routes:
-    - route: esmapi-dev.cfapps.eu10-004.hana.ondemand.com
+    - route: esmapi-pg.cfapps.eu10-004.hana.ondemand.com
   path: srv/target/srv-exec.jar  
   services:  
     - esmapi-xsuaa
     - esmapi-hana
     - iESM-destination-services
   env:
+    JBP_CONFIG_OPEN_JDK_JRE: '{jre: { version: 17.0.+ }}'
     IAS_XSUAA_XCHANGE_ENABLED: true
-    SEND_XFRAMEOPTIONS: false
 
 # Application Router as web server
 - name: app-esmapi
@@ -19,8 +20,9 @@ applications:
   buildpacks:
     - nodejs_buildpack
   memory: 128M
+  disk_quota: 256M
   routes:
-    - route: esmapi-devapp.cfapps.eu10-004.hana.ondemand.com
+    - route: esmapi-pgapp.cfapps.eu10-004.hana.ondemand.com
   services:
     - esmapi-xsuaa
     - iESM-destination-services
@@ -29,7 +31,7 @@ applications:
       [
         {
           "name":"token-destination",
-          "url":"https://esmapi-dev.cfapps.eu10-004.hana.ondemand.com",
+          "url":"https://esmapi-pg.cfapps.eu10-004.hana.ondemand.com",
           "forwardAuthToken": true
         },
         {
